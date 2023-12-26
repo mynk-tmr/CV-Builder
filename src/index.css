@@ -1,0 +1,110 @@
+:root {
+  --primary-col: #0e374e;
+  --secondary-col: rgba(0, 0, 0, 0.87);
+  scrollbar-gutter: stable both-edges;
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+body {
+  padding: 1rem .5rem;
+  display: grid;
+  grid-template: auto / 1fr 1.4fr;
+  color: var(--secondary-col);
+}
+
+.card {
+  display: grid;
+  padding: 10px;
+  box-shadow: 2px 2px 5px lightgray, -2px -2px 5px lightgray;
+}
+
+.controlbtns {
+  display: flex;
+  font-size: .9rem;
+  cursor: pointer;
+  font-weight: bold;
+
+  & li {
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    & svg {
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+.activebtn {
+  color: var(--primary-col);
+  background-color: rgb(190, 229, 255);
+}
+
+.resetbtn {
+  color: darkred ;
+  &:active {
+    background-color: darkred;
+    color: white ;
+  }
+}
+
+.accordian {
+  margin: 1.25rem 0;
+  width: 100%;
+  padding: 1rem 1.25rem;
+
+
+  & .header {
+    font-size: 1.25rem;
+    cursor: pointer;
+    overflow: hidden;
+
+    & svg {
+      translate: 0 .15rem;
+      margin-right: 1rem;
+    }
+  }
+
+  & span {
+    float: right;
+    scale: 1.2;
+  }
+}
+
+.detailsbox {
+  display: grid;
+  row-gap: 1rem;
+  margin-top: 1rem;
+
+
+  & label {
+    font-weight: bold;
+    color: var(--primary-col);
+  }
+
+  & input, textarea {
+    all : unset;
+    font-size: 1rem;
+    padding: .5rem;
+    background-color: lightgray;
+  }
+}
+
+.education {
+
+  & .header {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+}
