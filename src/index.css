@@ -23,10 +23,13 @@ body {
   display: grid;
   padding: 10px;
   box-shadow: 2px 2px 5px lightgray, -2px -2px 5px lightgray;
+  background-color: snow;
 }
 
 .controlbtns {
   display: flex;
+  position: sticky;
+  top: 1rem;
   font-size: .9rem;
   cursor: pointer;
   font-weight: bold;
