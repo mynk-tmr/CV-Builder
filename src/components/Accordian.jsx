@@ -13,8 +13,9 @@ export default function Accordian({
   children,
   eraseData,
   addData,
+  open=false,
 }) {
-  const [stretch, toggleStretch] = useToggle(false);
+  const [stretch, toggleStretch] = useToggle(open);
   return (
     <section className="card accordian">
       <div className="header" onClick={toggleStretch}>

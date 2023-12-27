@@ -15,7 +15,7 @@ import {
 
 export default function ContentTab({perData, setPersonal, eduData, setEduData, expData, setExpData}) {
   return (
-    <>
+    <section className="content-tab">
       <Accordian head="Personal Details" icon={<Person />}>
         <Details
           inputFieldData={perData[0]}
@@ -42,6 +42,6 @@ export default function ContentTab({perData, setPersonal, eduData, setEduData, e
           handleInputChange={handleCreator(setExpData)}
         />
       </Accordian>
-    </>
+    </section>
   );
 }

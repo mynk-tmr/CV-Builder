@@ -12,10 +12,10 @@ function getHead([title, , from, to]) {
   );
 }
 
-export default function FieldCard({ data, handleInputChange, eraseData }) {
-  return (
-    <section className="education">
-      {data.map((subdata, index) => (
+const FieldCard = ({ data, handleInputChange, eraseData }) => (
+  <>
+    {data.map((subdata, index) => (
+      <section key={index} className="fieldcard">
         <Accordian
           eraseData={(e) => e.stopPropagation() ?? eraseData(index)}
           key={index}
@@ -25,7 +25,9 @@ export default function FieldCard({ data, handleInputChange, eraseData }) {
             handleInputChange={handleInputChange}
           />
         </Accordian>
-      ))}
-    </section>
-  );
-}
+      </section>
+    ))}
+  </>
+);
+
+export default FieldCard;
