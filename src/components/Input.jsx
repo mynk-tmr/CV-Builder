@@ -1,7 +1,7 @@
-export default function Input({ type, value, ...rest }) {
+export default function Input({ type, ...rest }) {
   return type !== "textarea" ? (
-    <input type={type} value={value} {...rest} />
+    <input type={type} {...rest} />
   ) : (
-    <textarea {...rest}>{value}</textarea>
+    <textarea {...rest}/>
   );
 }
