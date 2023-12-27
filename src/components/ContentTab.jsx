@@ -1,7 +1,7 @@
 import { educationData, experienceData } from "../assets/data";
 import Accordian from "./Accordian";
 import Details from "./Details";
-import FieldCard from "./FieldCard";
+import DatacardCreator from "./DatacardCreator";
 import {
   handleCreator,
   addDataCreator,
@@ -13,7 +13,14 @@ import {
   MdOutlineWorkOutline as Exp,
 } from "react-icons/md";
 
-export default function ContentTab({perData, setPersonal, eduData, setEduData, expData, setExpData}) {
+export default function ContentTab({
+  perData,
+  setPersonal,
+  eduData,
+  setEduData,
+  expData,
+  setExpData,
+}) {
   return (
     <section className="content-tab">
       <Accordian head="Personal Details" icon={<Person />}>
@@ -26,7 +33,7 @@ export default function ContentTab({perData, setPersonal, eduData, setEduData, e
         head="Education"
         icon={<Edu />}
         addData={addDataCreator(setEduData, educationData[0])}>
-        <FieldCard
+        <DatacardCreator
           data={eduData}
           eraseData={eraseDataCreator(setEduData)}
           handleInputChange={handleCreator(setEduData)}
@@ -36,7 +43,7 @@ export default function ContentTab({perData, setPersonal, eduData, setEduData, e
         head="Experience"
         icon={<Exp />}
         addData={addDataCreator(setExpData, experienceData[0])}>
-        <FieldCard
+        <DatacardCreator
           data={expData}
           eraseData={eraseDataCreator(setExpData)}
           handleInputChange={handleCreator(setExpData)}

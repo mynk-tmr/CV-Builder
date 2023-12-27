@@ -10,14 +10,15 @@ import {
 export default function Accordian({
   icon,
   head,
+  cls = "",
   children,
   eraseData,
   addData,
-  open=false,
+  open = false,
 }) {
   const [stretch, toggleStretch] = useToggle(open);
   return (
-    <section className="card accordian">
+    <section className={"card accordian" + " " + cls}>
       <div className="header" onClick={toggleStretch}>
         {icon}
         {head}
