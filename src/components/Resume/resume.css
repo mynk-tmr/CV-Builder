@@ -1,6 +1,7 @@
 .resume-container {
   grid-area: 1/2/-1;
   display: grid;
+  box-shadow: 2px 2px 10px black;
 
   .header {
     display: grid;
@@ -21,7 +22,6 @@
     a {
       all: unset;
       display: inline-block;
-      text-wrap: nowrap;
       padding: 1rem 0;
       font-size: 1rem;
       margin-left: 1rem;

@@ -31,39 +31,43 @@ export default function App() {
         setExpData(experienceData);
         setActiveTab(0);
         break;
+      case 3:
+        window.print();
     }
   }
 
   return (
     <>
-      <ControlBox activeTab={activeTab} handleClick={handleTabChange} />
-      {activeTab == 0 && (
-        <ContentTab
-          {...{
-            perData,
-            setPersonal,
-            eduData,
-            setEduData,
-            expData,
-            setExpData,
-          }}
-        />
-      )}
-      {activeTab == 1 && (
-        <CustomizeTab
-          {...{
-            color,
-            layout,
-            font,
-            changeColor: (e) => {
-              if (e.type == "click") toggleInvert();
-              else setColor(e.target.value);
-            },
-            changeLayout: (e) => setLayout(e.target.id),
-            changeFont: (e) => setFont(e.target.value),
-          }}
-        />
-      )}
+      <section className="ui-box">
+        <ControlBox activeTab={activeTab} handleClick={handleTabChange} />
+        {activeTab == 0 && (
+          <ContentTab
+            {...{
+              perData,
+              setPersonal,
+              eduData,
+              setEduData,
+              expData,
+              setExpData,
+            }}
+          />
+        )}
+        {activeTab == 1 && (
+          <CustomizeTab
+            {...{
+              color,
+              layout,
+              font,
+              changeColor: (e) => {
+                if (e.type == "click") toggleInvert();
+                else setColor(e.target.value);
+              },
+              changeLayout: (e) => setLayout(e.target.id),
+              changeFont: (e) => setFont(e.target.value),
+            }}
+          />
+        )}
+      </section>
       <Resume {...{ perData, eduData, expData, color, invert, font, layout }} />
     </>
   );
