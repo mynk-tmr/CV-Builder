@@ -1,6 +1,7 @@
 import ContentTab from "./ContentTab";
 import ControlBox from "./ControlBox";
 import CustomizeTab from "./CustomizeTab";
+import Resume from "./Resume/Resume";
 import { useState } from "react";
 import { personalData, educationData, experienceData } from "../assets/data";
 
@@ -10,7 +11,7 @@ export default function App() {
   const [expData, setExpData] = useState(experienceData);
   const [activeTab, setActiveTab] = useState(1);
   const [color, setColor] = useState("#0e374e");
-  const [layout, setLayout] = useState("TB");
+  const [layout, setLayout] = useState(`"header" "body"`);
   const [font, setFont] = useState("Noto Sans");
 
   function handleTabChange(tab) {
@@ -58,6 +59,7 @@ export default function App() {
           }}
         />
       )}
+      <Resume {...{perData, eduData, expData, color, font, layout}} />
     </>
   );
 }

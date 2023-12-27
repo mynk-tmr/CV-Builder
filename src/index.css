@@ -11,10 +11,11 @@
   list-style: none;
 }
 
-body {
+#root {
   padding: 1rem 0.5rem;
   display: grid;
-  grid-template: auto / 1fr 1.4fr;
+  grid-template: auto 1fr/ 1fr 1.4fr;
+  column-gap: 1rem;
   color: var(--secondary-col);
 }
 
@@ -107,6 +108,7 @@ body {
 }
 
 .content-tab {
+  grid-column: 1;
   display: grid;
   row-gap: 1.25rem;
 
@@ -121,6 +123,7 @@ body {
 }
 
 .customize-tab {
+  grid-column: 1;
   display: grid;
   grid-template: 1fr 3fr / 1fr 1fr;
   gap: 2rem;

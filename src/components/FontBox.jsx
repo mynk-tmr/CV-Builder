@@ -4,7 +4,7 @@ import { MdOutlineFormatColorText as FontIco } from "react-icons/md";
 const FontBox = ({ font, changeFont }) => (
   <Accordian open={true} head="Font" icon={<FontIco />}>
     <article className="fontbox">
-      {["Ubuntu", "JetBrains Mono", "Noto Sans"].map((ft) => (
+      {["Ubuntu", "Courier New", "Noto Sans"].map((ft) => (
         <label key={ft} htmlFor={ft} style={{ fontFamily: ft }}>
           <input
             type="radio"
