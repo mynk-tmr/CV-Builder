@@ -52,10 +52,10 @@ export default function App() {
             color,
             layout,
             font,
+            changeColor: (e) => setColor(e.target.value),
+            changeLayout: (e) => setLayout(e.target.id),
+            changeFont: (e) => setFont(e.target.value),
           }}
-          changeColor={(e) => setColor(e.target.value)}
-          changeLayout={(e) => setLayout(e.target.id)}
-          changeFont={(e) => setFont(e.target.value)}
         />
       )}
     </>
