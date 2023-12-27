@@ -4,6 +4,7 @@ import CustomizeTab from "./CustomizeTab";
 import Resume from "./Resume/Resume";
 import { useState } from "react";
 import { personalData, educationData, experienceData } from "../assets/data";
+import { useToggle } from "../assets/utils";
 
 export default function App() {
   const [perData, setPersonal] = useState(personalData);
@@ -11,6 +12,7 @@ export default function App() {
   const [expData, setExpData] = useState(experienceData);
   const [activeTab, setActiveTab] = useState(1);
   const [color, setColor] = useState("#0e374e");
+  const [invert, toggleInvert] = useToggle(false);
   const [layout, setLayout] = useState(`"header" "body"`);
   const [font, setFont] = useState("Noto Sans");
 
@@ -53,13 +55,16 @@ export default function App() {
             color,
             layout,
             font,
-            changeColor: (e) => setColor(e.target.value),
+            changeColor: (e) => {
+              if (e.type == "click") toggleInvert();
+              else setColor(e.target.value);
+            },
             changeLayout: (e) => setLayout(e.target.id),
             changeFont: (e) => setFont(e.target.value),
           }}
         />
       )}
-      <Resume {...{perData, eduData, expData, color, font, layout}} />
+      <Resume {...{ perData, eduData, expData, color, invert, font, layout }} />
     </>
   );
 }

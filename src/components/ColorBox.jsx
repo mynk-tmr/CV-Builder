@@ -5,7 +5,9 @@ const ColorBox = ({ color, changeColor }) => (
   <Accordian open={true} head="Accent Color" icon={<ColIco />}>
     <div style={{ display: "flex", alignItems: "center" }}>
       <input type="color" value={color} onChange={changeColor} />
-      <output style={{ fontFamily: "monospace" }}>{color}</output>
+      <button style={{ padding: "0.2rem 1rem" }} onClick={changeColor}>
+        Invert
+      </button>
     </div>
   </Accordian>
 );

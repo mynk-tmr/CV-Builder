@@ -6,14 +6,15 @@ export default function StylishPara({ datagroup }) {
   return (
     <p className="stylishpara">
       <span>
-        {from} to {to || "present"}
-        <br />
-        {location}
+        <i>
+          {from} to {to || "present"}
+        </i>
+        <span>{location}</span>
       </span>
       <span>
         <b>{role}</b>
         <i>{place}</i>
-        <blockquote>{jobdesc}</blockquote>
+        {jobdesc && <span className="jobdesc">{jobdesc}</span>}
       </span>
     </p>
   );
