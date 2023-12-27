@@ -1,7 +1,10 @@
-export default function Body() {
+import InfoSection from "./InfoSection";
+
+export default function Body({ eduData, expData }) {
   return (
     <section className="body">
-      <h2>Body</h2>
+      <InfoSection head={"Education"} dataset={eduData} />
+      <InfoSection head={"Professional Experience"} dataset={expData} />
     </section>
   );
 }
