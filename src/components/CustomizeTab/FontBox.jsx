@@ -1,4 +1,4 @@
-import Accordian from "./Accordian";
+import Accordian from "../Accordian";
 import { MdOutlineFormatColorText as FontIco } from "react-icons/md";
 
 const FontBox = ({ font, changeFont }) => (

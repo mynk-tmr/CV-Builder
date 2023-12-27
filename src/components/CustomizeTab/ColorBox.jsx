@@ -1,4 +1,4 @@
-import Accordian from "./Accordian";
+import Accordian from "../Accordian";
 import { MdOutlineColorLens as ColIco } from "react-icons/md";
 
 const ColorBox = ({ color, changeColor }) => (

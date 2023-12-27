@@ -1,4 +1,4 @@
-import Accordian from "./Accordian";
+import Accordian from "../Accordian";
 import { MdFilterHdr as LayoutIco } from "react-icons/md";
 
 const LayoutBox = ({ layout, changeLayout, color }) => (
