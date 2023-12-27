@@ -14,7 +14,7 @@ export default function App() {
   const [color, setColor] = useState("#0e374e");
   const [invert, toggleInvert] = useToggle(false);
   const [layout, setLayout] = useState(`"header" "body"`);
-  const [font, setFont] = useState("Noto Sans");
+  const [font, setFont] = useState("Open Sans");
 
   function handleTabChange(tab) {
     if (tab === activeTab) return;
