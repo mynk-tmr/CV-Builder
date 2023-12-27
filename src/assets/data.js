@@ -2,34 +2,31 @@ import { keygen } from "./utils";
 
 export const personalData = [
   [
-    [keygen(),  "fullname", "Mayank Tomar", "text"],
-    [keygen(), "email", "github@noreply.com", "email"],
-    [keygen(), "phone", "8839202109", "tel"],
-    [keygen(), "address", "New Delhi, India", "text"],
+    [keygen(), "text", "Fullname", "Mayank Tomar"],
+    [keygen(), "email", "Email", "github@noreply.com"],
+    [keygen(), "tel", "Phone number", "8839202109"],
+    [keygen(), "text", "Address", "New Delhi, India"],
   ],
 ];
 
 export const educationData = [
   [
-    [keygen(), "school", "University of Delhi", "text"],
-    [keygen(), "degree", "Bachelor of Computer Science", "text"],
-    [keygen(), "started in", "2016-06", "month"],
-    [keygen(), "finished on", "2019-05", "month"],
-    [keygen(), "Location", "New Delhi, India", "text"],
+    [keygen(), "text", "School", "University of Delhi"],
+    [keygen(), "text", "Degree", "Bachelor of Computer Science"],
+    [keygen(), "month", "Started in", "2016-06"],
+    [keygen(), "month", "Finished on", "2019-05"],
+    [keygen(), "text", "Location", "New Delhi, India"],
   ],
 ];
 
 export const experienceData = [
   [
-    [keygen(), "Place of Work", "Accenture, New Delhi", "text"],
-    [keygen(), "Position Title", "React Engineer", "text"],
-    [keygen(), "started in", "2022-11", "month"],
-    [keygen(), "finished on", "", "month"],
-    [
-      keygen(),
-      "Job Description",
+    [keygen(), "text", "Place of Work", "Accenture, New Delhi"],
+    [keygen(), "text", "Position Title", "React Engineer"],
+    [keygen(), "month", "started in", "2022-11"],
+    [keygen(), "month", "finished on", ""],
+    [keygen(), "textarea", "Job Description",
       "Designed and prototyped user interface patterns for various clients across diverse fields. Produced interactive documentation and tested & refactored legacy React class based code.",
-      "textarea"
     ],
   ],
 ];

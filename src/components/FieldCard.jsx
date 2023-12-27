@@ -19,7 +19,7 @@ const FieldCard = ({ data, handleInputChange, eraseData }) => (
         <Accordian
           eraseData={(e) => e.stopPropagation() ?? eraseData(index)}
           key={index}
-          head={getHead(subdata.map((fd) => fd[2]))}>
+          head={console.log(subdata) ?? "New Field"}>
           <Details
             inputFieldData={subdata}
             handleInputChange={handleInputChange}
