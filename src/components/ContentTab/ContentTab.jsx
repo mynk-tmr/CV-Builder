@@ -1,12 +1,12 @@
-import { educationData, experienceData } from "../assets/data";
-import Accordian from "./Accordian";
-import Details from "./Details";
+import { educationData, experienceData } from "../../assets/data";
+import Accordian from "../Reusables/Accordian";
+import Details from "../Reusables/Details";
 import DatacardCreator from "./DatacardCreator";
 import {
   handleCreator,
   addDataCreator,
   eraseDataCreator,
-} from "../assets/utils";
+} from "../../assets/utils";
 import {
   MdMan4 as Person,
   MdOutlineSchool as Edu,

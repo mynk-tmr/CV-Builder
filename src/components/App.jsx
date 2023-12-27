@@ -1,5 +1,5 @@
-import ContentTab from "./ContentTab";
-import ControlBox from "./ControlBox";
+import ContentTab from "./ContentTab/ContentTab";
+import ControlBox from "./ControlBox/ControlBox";
 import CustomizeTab from "./CustomizeTab/CustomizeTab";
 import Resume from "./Resume/Resume";
 import { useState } from "react";

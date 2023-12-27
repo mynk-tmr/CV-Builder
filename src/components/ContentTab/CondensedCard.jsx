@@ -1,5 +1,5 @@
-import Accordian from "./Accordian";
-import Details from "./Details";
+import Accordian from "../Reusables/Accordian";
+import Details from "../Reusables/Details";
 
 function getHead([place, , from, to]) {
   console.count("gethead");
