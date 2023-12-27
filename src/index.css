@@ -22,7 +22,6 @@ body {
   display: grid;
   padding: 10px;
   box-shadow: 2px 2px 5px lightgray, -2px -2px 5px lightgray;
-  background-color: white;
 }
 
 .controlbtns {
@@ -33,6 +32,8 @@ body {
   cursor: pointer;
   font-weight: bold;
   margin-bottom: 1.5rem;
+  background-color: white;
+  z-index: 1;
 
   & li {
     padding: 0.5rem 1rem;
@@ -69,7 +70,6 @@ body {
   & .header {
     font-size: 1.25rem;
     cursor: pointer;
-    overflow: hidden;
 
     & svg {
       translate: 0 0.15rem;
