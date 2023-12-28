@@ -1,8 +1,8 @@
-# React + Vite
+# Resume Builder App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Made with __React.js__
 
-Currently, two official plugins are available:
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/React_Logo_SVG.svg/640px-React_Logo_SVG.svg.png" height="100">
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+### [Visit here](https://mayank-https.github.io/CV-Builder)
