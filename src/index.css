@@ -12,6 +12,9 @@
   .resume-container {
     position: fixed;
     box-shadow: none;
+    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+
   }
 }
 
@@ -195,7 +198,7 @@
   cursor: pointer;
 }
 
-input:not([type='radio'], [type='color']),
+input:not([type="radio"], [type="color"]),
 textarea {
   all: unset;
   font-size: 1rem;
