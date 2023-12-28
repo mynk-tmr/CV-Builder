@@ -204,6 +204,6 @@ textarea {
   background-color: lightgray;
 }
 
-& textarea {
+textarea {
   min-height: 5rem;
 }
