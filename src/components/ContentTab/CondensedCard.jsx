@@ -2,8 +2,6 @@ import Accordian from "../Reusables/Accordian";
 import Details from "../Reusables/Details";
 
 function getHead([place, , from, to]) {
-  console.count("gethead");
-
   if (from) from = from.slice(0, 4) + " to ";
   to = to.slice(0, 4) || "....";
   const Date = () => <small>{" ( " + from + to + " )"}</small>;
