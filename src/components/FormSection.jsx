@@ -1,7 +1,14 @@
 import { useForm, useFieldArray } from "react-hook-form";
 import Input from "./Reusables/Input";
+import Accordian from "./Reusables/Accordian";
 
-const FormSection = ({ initValues, labels, pins, sectionName }) => {
+const FormSection = ({
+  initValues,
+  labels,
+  pins,
+  sectionName,
+  visualTitle,
+}) => {
   const { register, control } = useForm({
     defaultValues: {
       [sectionName]: [initValues],
@@ -10,33 +17,33 @@ const FormSection = ({ initValues, labels, pins, sectionName }) => {
     },
   });
 
-  const { fields: collections, append } = useFieldArray({
+  const {
+    fields: collections,
+    append,
+    remove,
+  } = useFieldArray({
     name: sectionName,
     control,
   });
 
   return (
-    <form>
+    <form className="inline-grid gap-y-4">
       {collections.map((field, index) => (
         //key must be field.id (hook provides)
-        <section key={field.id} className="border-t border-gray-800 py-4">
-          {labels.map((_, i) => (
-            <Input
-              index={i}
-              key={i}
-              label={labels[i]}
-              id={`${index}.${pins[i]}`}
-              {...register(`${sectionName}.${index}.${pins[i]}`)}
-            />
-          ))}
-        </section>
+        <Accordian key={field.id}>
+          <Accordian.Header>{visualTitle}</Accordian.Header>
+          <Accordian.Body append={append} destroy={() => remove(index)}>
+            {labels.map((_, i) => (
+              <Input
+                key={i}
+                label={labels[i]}
+                id={`${sectionName}.${index}.${pins[i]}`}
+                {...register(`${sectionName}.${index}.${pins[i]}`)}
+              />
+            ))}
+          </Accordian.Body>
+        </Accordian>
       ))}
-      <button
-        onClick={append}
-        type="button"
-        className="bg-red-300 px-2 py-1 rounded-md mt-1 hover:bg-red-400 active:bg-red-400">
-        Add
-      </button>
     </form>
   );
 };

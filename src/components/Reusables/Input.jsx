@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 
-const Input = forwardRef(({ id, label, index, ...props }, ref) => (
+const Input = forwardRef(({ id, label, ...props }, ref) => (
   <div className="grid gap-1 mb-2">
     <label className="font-bold" htmlFor={id}>
       {label}
