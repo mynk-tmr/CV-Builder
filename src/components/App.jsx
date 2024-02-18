@@ -3,8 +3,8 @@ import ControlBox from "./ControlBox/ControlBox";
 import CustomizeTab from "./CustomizeTab/CustomizeTab";
 import Resume from "./Resume/Resume";
 import { useState } from "react";
-import { personalData, educationData, experienceData } from "../assets/data";
-import { useToggle } from "../assets/utils";
+import { personalData, educationData, experienceData } from "../config/data";
+import { useToggle } from "../config/utils";
 
 export default function App() {
   const [perData, setPersonal] = useState(personalData);

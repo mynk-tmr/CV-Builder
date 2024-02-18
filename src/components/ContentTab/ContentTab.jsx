@@ -1,12 +1,12 @@
-import { educationData, experienceData } from "../../assets/data";
+import { educationData, experienceData } from "../../config/data";
 import Accordian from "../Reusables/Accordian";
-import Details from "../Reusables/Details";
+import Details from "../Reusables/SubForm";
 import DatacardCreator from "./DatacardCreator";
 import {
   handleCreator,
   addDataCreator,
   eraseDataCreator,
-} from "../../assets/utils";
+} from "../../config/utils";
 import {
   UserCircleIcon as Person,
   AcademicCapIcon as Edu,

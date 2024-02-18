@@ -1,5 +1,5 @@
 import Accordian from "../Reusables/Accordian";
-import Details from "../Reusables/Details";
+import SubForm from "../Reusables/SubForm";
 
 function getHead([place, , from, to]) {
   if (from) from = from.slice(0, 4) + " to ";
@@ -23,7 +23,7 @@ const CondensedCard = ({
     eraseData={(e) => e.stopPropagation() ?? eraseData(index)}
     key={index}
     head={getHead(carddetails.map((field) => field.at(-1)))}>
-    <Details
+    <SubForm
       inputFieldData={carddetails}
       handleInputChange={handleInputChange}
     />
