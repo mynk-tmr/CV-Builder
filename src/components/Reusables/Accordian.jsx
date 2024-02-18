@@ -1,11 +1,11 @@
 import { useToggle } from "../../assets/utils";
 
 import {
-  MdKeyboardDoubleArrowUp as Up,
-  MdKeyboardDoubleArrowDown as Down,
-  MdDelete as Dustbin,
-  MdAddCircle as AddIco,
-} from "react-icons/md";
+  ArrowUpCircleIcon as Up,
+  ArrowDownCircleIcon as Down,
+  TrashIcon as Dustbin,
+  PlusCircleIcon as AddIco,
+} from "@heroicons/react/16/solid";
 
 export default function Accordian({
   icon,

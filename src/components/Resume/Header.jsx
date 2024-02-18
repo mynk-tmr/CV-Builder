@@ -1,4 +1,8 @@
-import { MdHome, MdMail, MdPhone } from "react-icons/md";
+import {
+  HomeModernIcon as Home,
+  EnvelopeIcon as Mail,
+  PhoneIcon as Phone,
+} from "@heroicons/react/16/solid";
 
 export default function Header({ details, style }) {
   const [username, email, phone, address] = details;
@@ -7,14 +11,14 @@ export default function Header({ details, style }) {
       <h1>{username}</h1>
       <section className="contact-info">
         <a href={`mailto:${email}`}>
-          <MdMail />
+          <Mail />
           {email}
         </a>
         <a href={`tel:${phone}`}>
-          <MdPhone /> {phone}
+          <Phone /> {phone}
         </a>
         <a href="">
-          <MdHome /> {address}
+          <Home /> {address}
         </a>
       </section>
     </section>

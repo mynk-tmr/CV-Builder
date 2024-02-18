@@ -8,10 +8,10 @@ import {
   eraseDataCreator,
 } from "../../assets/utils";
 import {
-  MdMan4 as Person,
-  MdOutlineSchool as Edu,
-  MdOutlineWorkOutline as Exp,
-} from "react-icons/md";
+  UserCircleIcon as Person,
+  AcademicCapIcon as Edu,
+  BriefcaseIcon as Exp,
+} from "@heroicons/react/16/solid";
 
 export default function ContentTab({
   perData,

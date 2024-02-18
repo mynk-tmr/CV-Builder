@@ -1,5 +1,5 @@
 import Accordian from "../Reusables/Accordian";
-import { MdOutlineFormatColorText as FontIco } from "react-icons/md";
+import { DocumentTextIcon as FontIco } from "@heroicons/react/16/solid";
 
 export default function FontBox({ font, changeFont }) {
   return (

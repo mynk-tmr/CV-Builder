@@ -1,5 +1,5 @@
 import Accordian from "../Reusables/Accordian";
-import { MdFilterHdr as LayoutIco } from "react-icons/md";
+import { SparklesIcon as LayoutIco } from "@heroicons/react/16/solid";
 
 const LayoutBox = ({ layout, changeLayout, color }) => (
   <Accordian open={true} head="Layout" icon={<LayoutIco />}>

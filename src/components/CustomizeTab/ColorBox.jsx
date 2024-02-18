@@ -1,5 +1,5 @@
 import Accordian from "../Reusables/Accordian";
-import { MdOutlineColorLens as ColIco } from "react-icons/md";
+import { PaintBrushIcon as ColIco } from "@heroicons/react/16/solid";
 
 const ColorBox = ({ color, changeColor }) => (
   <Accordian open={true} head="Accent Color" icon={<ColIco />}>

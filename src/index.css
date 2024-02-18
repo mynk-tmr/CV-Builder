@@ -1,3 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  svg {
+    @apply inline-block w-6;
+  }
+}
+
 :root {
   --primary-col: #0e374e;
   --secondary-col: rgba(0, 0, 0, 0.87);
@@ -14,7 +24,6 @@
     box-shadow: none;
     print-color-adjust: exact !important;
     -webkit-print-color-adjust: exact !important;
-
   }
 }
 
@@ -153,7 +162,11 @@
       }
 
       &:nth-child(1) {
-        background: linear-gradient(to right, white 50%, var(--primary-col) 50%);
+        background: linear-gradient(
+          to right,
+          white 50%,
+          var(--primary-col) 50%
+        );
       }
       &:nth-child(2) {
         background: linear-gradient(to top, white 50%, var(--primary-col) 50%);
