@@ -1,45 +1,32 @@
 import { useForm, useFieldArray } from "react-hook-form";
 import Input from "./Reusables/Input";
 
-const FormSection = () => {
+const FormSection = ({ initValues, labels, pins, sectionName }) => {
   const { register, control } = useForm({
     defaultValues: {
-      education: [
-        //define a field as array
-        {
-          school: "University of Delhi",
-          degree: "Bachelor of Science",
-          startedIn: "2016-06",
-          finishedOn: "2019-05",
-          location: "New Delhi, India",
-        },
-      ],
+      [sectionName]: [initValues],
+      //e.g. education : { ... },
+      //we can now use education.0.degree to register a value
     },
   });
 
   const { fields: collections, append } = useFieldArray({
-    name: "education", //use that here
+    name: sectionName,
     control,
   });
-
-  const labels = ["School", "Degree", "Started In", "Finished On", "Location"];
-  const pins = ["school", "degree", "startedIn", "finishedOn", "location"];
-
-  // append/remove full collection
-  // within a collection, loop over labels
 
   return (
     <form>
       {collections.map((field, index) => (
         //key must be field.id (hook provides)
-        <section key={field.id}>
+        <section key={field.id} className="border-t border-gray-800 py-4">
           {labels.map((_, i) => (
             <Input
               index={i}
               key={i}
               label={labels[i]}
               id={`${index}.${pins[i]}`}
-              {...register(`education.${index}.${pins[i]}`)}
+              {...register(`${sectionName}.${index}.${pins[i]}`)}
             />
           ))}
         </section>
