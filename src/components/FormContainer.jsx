@@ -8,12 +8,12 @@ import { FormProvider, useForm } from "react-hook-form";
 import { clearValues } from "../config/data";
 import { useEffect } from "react";
 
-const FormContainer = ({ userData, setUserData }) => {
+const FormContainer = ({ userData, shouldReset }) => {
   const formMethods = useForm({
     defaultValues: userData.signal,
   });
 
-  const { watch } = formMethods;
+  const { watch, reset } = formMethods;
   useEffect(() => {
     //callback runs when any value change by user
     const watchAll = watch((values) => {
@@ -22,12 +22,17 @@ const FormContainer = ({ userData, setUserData }) => {
     () => watchAll.unsubscribe();
   }, []);
 
+  if (shouldReset.signal) {
+    reset();
+    shouldReset.signal = false;
+  }
+
   let protoPersonal = clearValues(userData.signal.personal);
   let protoEducation = clearValues(userData.signal.education);
   let protoExperience = clearValues(userData.signal.experience);
 
   return (
-    <section className="grid gap-y-8 w-[30rem] mr-8">
+    <section className="grid grow gap-y-8">
       <FormProvider {...formMethods}>
         <FormSection
           visualTitle={

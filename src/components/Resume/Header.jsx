@@ -12,9 +12,9 @@ const Header = ({ bg, data, invert }) => {
         background: bg,
         color: invert ? "black" : "white",
       }}
-      className="grid text-center gap-y-4 py-3">
+      className="grid text-center gap-y-4 py-3 min-w-48">
       <h1 className="text-4xl font-bold">{fullname}</h1>
-      <section className="flex justify-evenly flex-wrap font-semibold">
+      <section className="flex justify-evenly flex-wrap font-semibold *:break-all">
         <a href={`mailto:${email}`}>
           <Mail className="w-4 mr-1" />
           {email}

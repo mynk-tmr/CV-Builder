@@ -28,14 +28,11 @@
   }
 }
 
-@media print {
-  .ui-box {
-    display: none;
+@layer utilities {
+  .break {
+    word-break: break-word;
   }
-
-  .resume-container {
-    position: fixed;
-    box-shadow: none;
+  .print-exact {
     print-color-adjust: exact !important;
     -webkit-print-color-adjust: exact !important;
   }
