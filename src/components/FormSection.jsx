@@ -12,7 +12,7 @@ const FormSection = ({
   const { register, control } = useForm({
     defaultValues: {
       [sectionName]: [initValues],
-      //e.g. education : { ... },
+      //e.g. education : [{ ... }],
       //we can now use education.0.degree to register a value
     },
   });

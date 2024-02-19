@@ -2,7 +2,7 @@ import { PaintBrushIcon } from "@heroicons/react/16/solid";
 
 const ColorPicker = ({ color, changeColor }) => (
   <article>
-    <header className="basis-full mb-4 text-xl text-yellow-500">
+    <header className="basis-full mb-4 text-xl text-orange-600">
       Change color <PaintBrushIcon className="w-4" />
     </header>
     <input

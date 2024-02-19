@@ -4,7 +4,6 @@
 
 @layer base {
   :root {
-    font-family: "Assistant Variable", sans-serif;
     scroll-behavior: smooth;
     scrollbar-width: thin;
     scrollbar-gutter: stable;

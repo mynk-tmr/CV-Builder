@@ -9,7 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource-variable/arima": "^5.0.8",
     "@fontsource-variable/assistant": "^5.0.16",
+    "@fontsource-variable/crimson-pro": "^5.0.17",
     "@heroicons/react": "^2.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
