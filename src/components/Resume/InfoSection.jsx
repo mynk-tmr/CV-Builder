@@ -1,18 +1,15 @@
 import StylishPara from "./StylishPara";
 
-export default function InfoSection({ head, dataset, color, invert }) {
+export default function InfoSection({ head, data, color, invert }) {
   return (
-    <article className="info-section">
+    <article>
       <h2
-        style={{
-          color: color ,
-          backgroundColor: invert? "black" : "gainsboro",
-          textAlign: "center",
-        }}>
+        className={`text-center text-xl ${invert ? "bg-black" : "bg-gray-300"}`}
+        style={{ color }}>
         {head}
       </h2>
-      {dataset.map((datagroup, index) => (
-        <StylishPara key={index} datagroup={datagroup} />
+      {data.map((atom, index) => (
+        <StylishPara key={index} atom={atom} />
       ))}
     </article>
   );

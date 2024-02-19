@@ -1,49 +1,37 @@
-import { useForm, useFieldArray } from "react-hook-form";
+import { useFieldArray, useFormContext } from "react-hook-form";
 import Input from "./Reusables/Input";
 import Accordian from "./Reusables/Accordian";
-import { useEffect } from "react";
 
 const FormSection = ({
-  initValues,
   labels,
   pins,
   sectionName,
   visualTitle,
-  onUpdate,
+  appendPrototype,
 }) => {
-  const { register, control, watch } = useForm({
-    defaultValues: {
-      [sectionName]: [initValues],
-      //e.g. education : [{ ... }],
-      //we can now use education.0.degree to register a value
-    },
-  });
-
-  const formValues = watch();
-  useEffect(() => {
-    onUpdate(formValues);
-  }, [formValues]);
-
-  const {
-    fields: collections,
-    append,
-    remove,
-  } = useFieldArray({
+  const { register } = useFormContext();
+  const { fields, append, remove } = useFieldArray({
     name: sectionName,
-    control,
+    //control (if using useForm)
   });
 
   return (
     <form className="inline-grid gap-y-4">
-      {collections.map((field, index) => (
+      {fields.map((field, index) => (
         //key must be field.id (hook provides)
         <Accordian key={field.id}>
           <Accordian.Header>{visualTitle}</Accordian.Header>
-          <Accordian.Body append={append} destroy={() => remove(index)}>
+          <Accordian.Body
+            add={() => append(appendPrototype)}
+            destroy={() => remove(index)}
+            isCopyable={sectionName !== "personal"}
+            //the first type of each subform is unremovable
+            isDeletable={index !== 0}>
             {labels.map((_, i) => (
               <Input
                 key={i}
                 label={labels[i]}
+                //e.g. eduction.0.degree
                 id={`${sectionName}.${index}.${pins[i]}`}
                 {...register(`${sectionName}.${index}.${pins[i]}`)}
               />

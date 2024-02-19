@@ -1,20 +1,18 @@
-export default function StylishPara({ datagroup }) {
-  const [place, role, from, to, location, jobdesc] = datagroup.map((field) =>
-    field.at(-1)
-  );
-
+export default function StylishPara({ atom }) {
   return (
-    <p className="stylishpara">
-      <span>
+    <p className="grid items-start grid-cols-[1fr_3fr] gap-4 p-4">
+      <span className="grid gap-2">
         <i>
-          {from} to {to || "present"}
+          {atom?.startedIn} to {atom?.finishedOn || "present"}
         </i>
-        <span>{location}</span>
+        <span>{atom?.location}</span>
       </span>
-      <span>
-        <b>{role}</b>
-        <i>{place}</i>
-        {jobdesc && <span className="jobdesc">{jobdesc}</span>}
+      <span className="grid gap-1">
+        <b>{atom?.title || atom?.degree}</b>
+        <i>{atom?.place || atom?.school}</i>
+        {atom?.description && (
+          <span className="bg-yellow-100 p-2">{atom.description}</span>
+        )}
       </span>
     </p>
   );

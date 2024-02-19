@@ -7,14 +7,16 @@ const Header = ({ children }) => (
   </h2>
 );
 
-const MenuBar = ({ append, toggle, open }) => (
+const MenuBar = ({ isCopyable, add, toggle, open }) => (
   <menu className="absolute top-2 right-2 opacity-70 cursor-pointer [&_li]:inline">
-    <button
-      type="button"
-      onClick={append}
-      className="hover:text-green-700 focus:text-green-700">
-      <PlusCircleIcon />
-    </button>
+    {isCopyable && (
+      <button
+        type="button"
+        onClick={add}
+        className="hover:text-green-700 focus:text-green-700">
+        <PlusCircleIcon />
+      </button>
+    )}
     <button
       type="button"
       onClick={toggle}
@@ -24,21 +26,23 @@ const MenuBar = ({ append, toggle, open }) => (
   </menu>
 );
 
-const Body = ({ children, append, destroy }) => {
+const Body = ({ children, destroy, isDeletable, ...rest }) => {
   const [open, setOpen] = useState(true);
   const toggle = () => setOpen(!open);
-  const props = { append, destroy, open, toggle };
+  const props = { open, toggle, ...rest };
   return (
     <>
       <article className={open ? "" : "hidden"}>{children}</article>
-      <div className="flex justify-end">
-        <button
-          onClick={destroy}
-          type="button"
-          className="bg-red-300 px-4 py-1 rounded-md mt-2 hover:bg-red-400 active:bg-red-400">
-          Delete
-        </button>
-      </div>
+      {isDeletable && (
+        <div className="flex justify-end">
+          <button
+            onClick={destroy}
+            type="button"
+            className="bg-red-300 px-4 py-1 rounded-md mt-2 hover:bg-red-400 active:bg-red-400">
+            Delete
+          </button>
+        </div>
+      )}
       <MenuBar {...props} />
     </>
   );

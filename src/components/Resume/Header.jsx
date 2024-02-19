@@ -1,26 +1,32 @@
 import {
-  HomeModernIcon as Home,
+  HomeIcon as Home,
   EnvelopeIcon as Mail,
   PhoneIcon as Phone,
 } from "@heroicons/react/16/solid";
 
-export default function Header({ details, style }) {
-  const [username, email, phone, address] = details;
+const Header = ({ bg, data }) => {
+  const { fullname, email, phone, address } = data ?? {};
   return (
-    <section className="header" style={style}>
-      <h1>{username}</h1>
-      <section className="contact-info">
+    <header
+      style={{
+        background: bg ?? "lightblue",
+      }}
+      className="grid text-center gap-y-4 py-3">
+      <h1 className="text-4xl font-bold">{fullname}</h1>
+      <section className="flex justify-evenly flex-wrap font-semibold">
         <a href={`mailto:${email}`}>
-          <Mail />
+          <Mail className="w-4 mr-1" />
           {email}
         </a>
         <a href={`tel:${phone}`}>
-          <Phone /> {phone}
+          <Phone className="w-4 mr-1" /> {phone}
         </a>
         <a href="">
-          <Home /> {address}
+          <Home className="w-4 mr-1" /> {address}
         </a>
       </section>
-    </section>
+    </header>
   );
-}
+};
+
+export default Header;

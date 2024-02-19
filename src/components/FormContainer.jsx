@@ -1,60 +1,75 @@
-import { BriefcaseIcon, UserCircleIcon } from "@heroicons/react/16/solid";
+import {
+  BriefcaseIcon,
+  UserCircleIcon,
+  AcademicCapIcon,
+} from "@heroicons/react/16/solid";
 import FormSection from "./FormSection";
+import { FormProvider, useForm } from "react-hook-form";
+import { clearValues } from "../config/data";
+import { useEffect } from "react";
 
-const FormContainer = ({ setUserData }) => {
+const FormContainer = ({ userData, setUserData }) => {
+  const formMethods = useForm({
+    defaultValues: userData,
+  });
+
+  const { watch } = formMethods;
+  useEffect(() => {
+    //callback runs when any value change by user
+    const watchAll = watch((values) => {
+      setUserData(values);
+    });
+    () => watchAll.unsubscribe();
+  }, []);
+
+  let protoPersonal = clearValues(userData.personal);
+  let protoEducation = clearValues(userData.education);
+  let protoExperience = clearValues(userData.experience);
+
   return (
     <section className="grid gap-y-8 w-[65ch]">
-      <FormSection
-        visualTitle={
-          <span>
-            <UserCircleIcon /> Education
-          </span>
-        }
-        labels={["School", "Degree", "Started In", "Finished On", "Location"]}
-        pins={["school", "degree", "startedIn", "finishedOn", "location"]}
-        sectionName="Education"
-        initValues={{
-          //pins and keys must be same
-          school: "University of Delhi",
-          degree: "Bachelor of Science",
-          startedIn: "2016-06",
-          finishedOn: "2019-05",
-          location: "New Delhi, India",
-        }}
-      />
-      <FormSection
-        visualTitle={
-          <span>
-            <BriefcaseIcon /> Experience
-          </span>
-        }
-        labels={[
-          "Place of Work",
-          "Position Title",
-          "Started In",
-          "Finished On",
-          "Location",
-          "Description",
-        ]}
-        pins={[
-          "place",
-          "title",
-          "startedIn",
-          "finishedOn",
-          "location",
-          "description",
-        ]}
-        sectionName="Experience"
-        initValues={{
-          place: "Accenture",
-          title: "React Engineer",
-          startedIn: "2022-11",
-          finishedOn: "2023-07",
-          location: "New Delhi, India",
-          description:
-            "Designed and prototyped user interface patterns for various clients across diverse fields. Produced interactive documentation and tested & refactored legacy React class based code.",
-        }}
-      />
+      <FormProvider {...formMethods}>
+        <FormSection
+          visualTitle={
+            <span>
+              <UserCircleIcon /> Personal Info
+            </span>
+          }
+          labels={["Full Name", "Email", "Phone", "Address"]}
+          pins={Object.keys(protoPersonal)}
+          sectionName="personal"
+          appendPrototype={protoPersonal}
+        />
+        <FormSection
+          visualTitle={
+            <span>
+              <AcademicCapIcon /> Education
+            </span>
+          }
+          labels={["School", "Degree", "Started In", "Finished On", "Location"]}
+          pins={Object.keys(protoEducation)}
+          sectionName="education"
+          appendPrototype={protoEducation}
+        />
+        <FormSection
+          visualTitle={
+            <span>
+              <BriefcaseIcon /> Experience
+            </span>
+          }
+          labels={[
+            "Place of Work",
+            "Position Title",
+            "Started In",
+            "Finished On",
+            "Location",
+            "Description",
+          ]}
+          pins={Object.keys(protoExperience)}
+          sectionName="experience"
+          appendPrototype={protoExperience}
+        />
+      </FormProvider>
     </section>
   );
 };

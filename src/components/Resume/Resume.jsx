@@ -2,24 +2,20 @@ import "./resume.css";
 import Header from "./Header";
 import Body from "./Body";
 
-const Resume = ({
-  perData = [[]],
-  eduData = [],
-  expData = [],
-  color,
-  invert,
-  layout,
-}) => (
-  <section className="resume-container" style={{ gridTemplateAreas: layout }}>
-    <Header
-      details={perData[0].map((val) => val.at(-1))}
-      style={{
-        backgroundColor: color,
-        color: invert ? "black" : "white",
-      }}
-    />
-    <Body {...{ eduData, expData, color, invert }} />
-  </section>
-);
+const Resume = ({ userData, color, invert, layout }) => {
+  let { personal = [], education = [], experience = [] } = userData;
+  personal = personal[0];
+  return (
+    <section className="grow transition-all self-start sticky top-4 py-3 px-6 bg-white border border-gray-300 rounded-md shadow-sm">
+      <Header bg={color} data={personal} />
+      <Body
+        eduData={education}
+        expData={experience}
+        color={color}
+        invert={invert}
+      />
+    </section>
+  );
+};
 
 export default Resume;
