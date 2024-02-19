@@ -10,24 +10,24 @@ import { useEffect } from "react";
 
 const FormContainer = ({ userData, setUserData }) => {
   const formMethods = useForm({
-    defaultValues: userData,
+    defaultValues: userData.signal,
   });
 
   const { watch } = formMethods;
   useEffect(() => {
     //callback runs when any value change by user
     const watchAll = watch((values) => {
-      setUserData(values);
+      userData.signal = values;
     });
     () => watchAll.unsubscribe();
   }, []);
 
-  let protoPersonal = clearValues(userData.personal);
-  let protoEducation = clearValues(userData.education);
-  let protoExperience = clearValues(userData.experience);
+  let protoPersonal = clearValues(userData.signal.personal);
+  let protoEducation = clearValues(userData.signal.education);
+  let protoExperience = clearValues(userData.signal.experience);
 
   return (
-    <section className="grid gap-y-8 w-[65ch]">
+    <section className="grid gap-y-8 w-[30rem] mr-8">
       <FormProvider {...formMethods}>
         <FormSection
           visualTitle={

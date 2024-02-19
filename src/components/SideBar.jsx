@@ -5,7 +5,7 @@ import {
   PrinterIcon as Print,
 } from "@heroicons/react/16/solid";
 
-const SideBar = ({ activeTab, setActiveTab }) => {
+const SideBar = ({ activeTab }) => {
   const buttons = [
     { Icon: Edit, text: "Content" },
     { Icon: Customize, text: "Customize" },
@@ -13,13 +13,13 @@ const SideBar = ({ activeTab, setActiveTab }) => {
     { Icon: Print, text: "Print" },
   ];
   return (
-    <aside className="flex flex-col pr-4 gap-y-4 h-fit *:py-2 hover:*:text-fuchsia-600 *:text-sm">
+    <aside className="sticky top-4 flex flex-col pr-4 gap-y-4 h-fit *:py-2 hover:*:text-fuchsia-600 *:text-sm">
       {buttons.map(({ Icon, text }, i) => (
         <button
           key={text}
-          onClick={() => setActiveTab(i)}
+          onClick={() => (activeTab.signal = i)}
           className={
-            i === activeTab ? "text-pink-600 hover:!text-pink-600" : ""
+            i === activeTab.signal ? "text-pink-600 hover:!text-pink-600" : ""
           }>
           <Icon /> {text}
         </button>

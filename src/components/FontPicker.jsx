@@ -1,6 +1,6 @@
 import { DocumentTextIcon } from "@heroicons/react/16/solid";
 import Input from "./Reusables/Input";
-import { useState } from "react";
+import useSignal from "./hooks/useSignal";
 
 const fontConfig = [
   { name: "Assistant", fontId: "Assistant Variable" },
@@ -8,8 +8,8 @@ const fontConfig = [
   { name: "Hao Arima", fontId: "Arima Variable" },
 ];
 
-const FontPicker = ({ currentFont, changeFont }) => {
-  const [inputFont, setInputFont] = useState("");
+const FontPicker = ({ font }) => {
+  let input = useSignal("");
   return (
     <article>
       <header className="basis-full mb-4 text-xl text-red-900">
@@ -23,10 +23,9 @@ const FontPicker = ({ currentFont, changeFont }) => {
                 className="mr-2 scale-125"
                 type="radio"
                 name="currentFont"
-                value={fontId}
                 id={fontId}
-                checked={currentFont === fontId}
-                onChange={changeFont}
+                checked={font.signal === fontId}
+                onChange={() => (font.signal = fontId)}
               />
               {name}
             </label>
@@ -38,15 +37,13 @@ const FontPicker = ({ currentFont, changeFont }) => {
             name="currentFontInput"
             label="Or use any of your system font"
             placeholder="Noto Sans"
-            value={inputFont}
-            onChange={(e) => setInputFont(e.target.value)}
+            value={input.signal}
+            onChange={(e) => (input.signal = e.target.value)}
           />
           <button
-            className="bg-red-700 text-white px-4 py-1 rounded-md hover:opacity-90"
+            className="bg-red-700 text-white px-6 py-1 rounded-md hover:opacity-90"
             id="customfont"
-            style={{ padding: "0.3rem" }}
-            value={inputFont}
-            onClick={changeFont}>
+            onClick={() => (font.signal = input.signal)}>
             Use Installed
           </button>
         </div>

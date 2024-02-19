@@ -4,12 +4,13 @@ import {
   PhoneIcon as Phone,
 } from "@heroicons/react/16/solid";
 
-const Header = ({ bg, data }) => {
+const Header = ({ bg, data, invert }) => {
   const { fullname, email, phone, address } = data ?? {};
   return (
     <header
       style={{
-        background: bg ?? "lightblue",
+        background: bg,
+        color: invert ? "black" : "white",
       }}
       className="grid text-center gap-y-4 py-3">
       <h1 className="text-4xl font-bold">{fullname}</h1>
