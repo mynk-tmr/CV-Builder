@@ -2,10 +2,15 @@ import "./resume.css";
 import Header from "./Header";
 import Body from "./Body";
 
-const Resume = ({ perData, eduData, expData, color, invert, font, layout }) => (
-  <section
-    className="resume-container"
-    style={{ gridTemplateAreas: layout, fontFamily: font }}>
+const Resume = ({
+  perData = [[]],
+  eduData = [],
+  expData = [],
+  color,
+  invert,
+  layout,
+}) => (
+  <section className="resume-container" style={{ gridTemplateAreas: layout }}>
     <Header
       details={perData[0].map((val) => val.at(-1))}
       style={{
@@ -13,7 +18,7 @@ const Resume = ({ perData, eduData, expData, color, invert, font, layout }) => (
         color: invert ? "black" : "white",
       }}
     />
-    <Body {...{ eduData, expData, color, invert} } />
+    <Body {...{ eduData, expData, color, invert }} />
   </section>
 );
 

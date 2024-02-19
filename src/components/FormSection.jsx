@@ -1,6 +1,7 @@
 import { useForm, useFieldArray } from "react-hook-form";
 import Input from "./Reusables/Input";
 import Accordian from "./Reusables/Accordian";
+import { useEffect } from "react";
 
 const FormSection = ({
   initValues,
@@ -8,14 +9,20 @@ const FormSection = ({
   pins,
   sectionName,
   visualTitle,
+  onUpdate,
 }) => {
-  const { register, control } = useForm({
+  const { register, control, watch } = useForm({
     defaultValues: {
       [sectionName]: [initValues],
       //e.g. education : [{ ... }],
       //we can now use education.0.degree to register a value
     },
   });
+
+  const formValues = watch();
+  useEffect(() => {
+    onUpdate(formValues);
+  }, [formValues]);
 
   const {
     fields: collections,

@@ -1,7 +1,7 @@
 import { BriefcaseIcon, UserCircleIcon } from "@heroicons/react/16/solid";
 import FormSection from "./FormSection";
 
-const FormContainer = () => {
+const FormContainer = ({ setUserData }) => {
   return (
     <section className="grid gap-y-8 w-[65ch]">
       <FormSection

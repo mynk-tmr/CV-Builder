@@ -6,11 +6,15 @@ const LayoutPicker = ({ layout, changeLayout, color }) => (
       Change layout <SparklesIcon className="w-4" />
     </header>
     <main
-      style={{ "--color": "blue" }}
+      style={{ "--color": color ?? "blue" }}
       className="*:w-24 *:h-24 *:border-2 *:rounded-full flex gap-2">
-      <button className="layoutinfo"></button>
-      <button className="layoutinfo"></button>
-      <button className="layoutinfo"></button>
+      {["--rtl", "--tb", "--ltr"].map((dim, i) => (
+        <button
+          key={i}
+          value={dim}
+          className={`layoutinfo ${layout === dim ? "border-black" : ""}`}
+          onClick={changeLayout}></button>
+      ))}
     </main>
   </article>
 );

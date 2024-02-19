@@ -13,8 +13,8 @@ const CustomiseContainer = ({
   return (
     <section className="*:mb-4 *:py-3 *:px-6 *:bg-white *:border *:border-gray-300 *:rounded-md *:shadow-sm *:flex *:flex-wrap *:gap-x-6">
       <ColorPicker />
-      <LayoutPicker />
-      <FontPicker currentFont={currentFont} changeFont={changeFont} />
+      <LayoutPicker {...{ layout, changeLayout, color }} />
+      <FontPicker {...{ currentFont, changeFont }} />
     </section>
   );
 };
